@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="comic.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(function() {
+        var $blinds = $("[id^=blind]"),
+            speed = 250,
+            delay = 1500;
+        function startAnimation() {
+          $blinds.each(function(i) {
+            var $blind = $blinds.eq(i);
+            $blind.delay(delay * i + speed).animate({
+              top: "+=" + $blind.height(),
+              height: 0
+            }, speed);
+          });
+        }
+
+        $('a').on('click', function(e) {
+          e.preventDefault();
+          $blinds.finish();
+          $blinds.removeAttr('style');
+          startAnimation();
+        });
+
+        startAnimation();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="comic">
+      <div id="panel_1">
+        <div id="blind_1"></div>
+        <div id="blind_2"></div>
+      </div>
+
+      <div id="panel_2">
+        <div id="blind_3"></div>
+        <div id="blind_4"></div>
+      </div>
+
+      <div id="panel_3">
+        <div id="blind_5"></div>
+        <div id="blind_6"></div>
+      </div>
+
+      <div id="panel_4">
+        <div id="blind_7"></div>
+        <div id="blind_8"></div>
+        <div id="blind_9"></div>
+      </div>
+    </div>
+    <p><a href="#">Start over</a></p>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Animate</title>
+  <style>
+    p {
+      width: 400px;
+      position: absolute;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $(function() {
+      $('p').animate({
+        left: 500,
+        top: 250
+      }, 400, function() {
+        $(this).animate({ left: 0,top: 0 }, 600);
+      });
+    });
+  </script>
+</head>
+<body>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, facere. Perspiciatis consectetur adipisci ipsa neque error porro officia, illo culpa eius quas saepe repellat illum. Enim obcaecati assumenda quae itaque.</p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      display: none;
+    }
+
+    p {
+      cursor: pointer;
+    }
+
+    div:first-of-type {
+      background: yellow;
+    }
+
+    div:nth-of-type(2) {
+      background: green;
+    }
+
+    div:last-of-type {
+      background: blue;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $(function() {
+
+      $('p').on('click', function() { 
+        $('div').fadeIn('slow', function() {
+          $(this).fadeOut('slow');
+        });
+      });
+
+
+      // $('p').on('click', function() { 
+      //   $('div').slideDown(600, function() {
+      //     $(this).slideUp(600);
+      //   });
+      // });
+
+    });
+  </script>
+  <title></title>
+</head>
+<body>
+  <p>Click to reaveal</p>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animating Paragraph</title>
+  <style>
+    p {
+      width: 400px;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var frame_length = 13,  // delay between each frame in milliseconds
+        speed = 400,          // duration of animation in milliseconds
+        steps = Math.round(speed / frame_length),
+        end_top = 250,
+        end_left = 500,
+        $p = document.querySelector("p"),
+        i = 0;
+      var update = function() {
+        $p.style.top = end_top * (i / steps) + "px";
+        $p.style.left = end_left * (i / steps) + "px";
+        i++;
+        i <= steps && setTimeout(update, frame_length);
+      };
+
+      setTimeout(update, 5000)
+        // kick off the animation loop
+    };
+
+  </script>
+</head>
+<body>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima illum dignissimos accusantium ipsa cupiditate atque quia, ad, at ex sunt itaque voluptatem voluptas nesciunt, ipsum facere, eum iusto doloribus rem.</p>
+</body>
+</html>
